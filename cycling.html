@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generic template</title> 
+    <link rel="stylesheet" href="generic.css">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<style>
+#my-div {
+	background-repeat: no-repeat!important;
+	background-size: cover!important;
+	min-height: 450px;
+	position: relative;
+	color: white;
+	transition: background 0.6s ease-in-out;
+} /* #my-div */
+
+.filter { /* Optional filter for text overlay */
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+} /* .filter */
+
+	</style>
+
+</head>
+<body>
+
+<section id="my-div">
+  <div class="filter">
+    <h2>Title</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum interdum nisi at convallis. Pellentesque eu augue quis urna convallis imperdiet. Fusce ac pulvinar felis. Vestibulum in bibendum est. Etiam tristique erat magna, quis porttitor quam varius ut. Vestibulum rutrum, nibh sed faucibus finibus, risus neque consequat lacus, vitae mattis lacus est ut lacus. Nullam et imperdiet diam. Donec malesuada velit eu ipsum rhoncus, sed iaculis arcu imperdiet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sit amet magna et urna tristique pretium.</p>
+  </div> <!-- end .filter -->
+</section> <!-- end #my-div -->
+
+<script type="text/javascript">
+	var imageIndex = 0;
+var imagesArray = [
+    "url('../path/to/image.jpg') top",
+    "url('../path/to/image.jpg') center",
+    "url('../path/to/image.jpg') bottom",
+];
+
+function changeBackground() {
+    var index = imageIndex++ % imagesArray.length;
+    $("#my-div").css("background", imagesArray[index] );
+}
+
+$(document).ready(function() {
+  $("#my-div").css("background", imagesArray[0] ); //Sets the first image
+  setInterval(changeBackground, 6000);
+});
+</script>
+
+
+</body>
+
+
+</html>
+
+
